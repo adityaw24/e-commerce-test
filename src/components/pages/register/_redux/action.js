@@ -25,11 +25,13 @@ export const registerUser =
       .then(({ data }) => {
         // console.log({ data })
         localStorage.setItem('Token', data.accessToken)
+        localStorage.setItem('Role', data.user.role)
+        localStorage.setItem('UserID', data.user.id)
         dispatch({ type: REGISTER_SUCCESS, payload: data })
+        alert('Success Register')
       })
       .catch((err) => {
         dispatch({ type: REGISTER_FAILED, payload: err })
-        console.log(err)
         alert(err)
       })
   }

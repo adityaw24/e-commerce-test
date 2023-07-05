@@ -28,17 +28,42 @@ import {
   Offcanvas,
   Row
 } from 'react-bootstrap'
+import { getRole, getToken, role } from '../../../utils'
+import { useDispatch } from 'react-redux'
+import { logoutRequest } from './_redux/action'
 
 const Header = () => {
   // const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const navItem = [
+  const dispatch = useDispatch()
+
+  const navItemBeforeLogin = [
     {
       id: 1,
       title: 'Product',
-      url: '/products'
+      url: '/'
     }
   ]
+
+  const navItemAfterLogin = [
+    {
+      id: 1,
+      title: 'Profile',
+      url: '/profile'
+    }
+  ]
+
+  const navItemAdmin = [
+    {
+      id: 1,
+      title: 'Page Admin',
+      url: '/admin'
+    }
+  ]
+
+  const logout = async () => {
+    await dispatch(logoutRequest())
+  }
 
   return (
     <Navbar expand="sm" className="bg-body-tertiary mb-3">
@@ -57,12 +82,32 @@ const Header = () => {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              {navItem.map((item) => (
+              {navItemBeforeLogin.map((item) => (
                 <Nav.Link key={item.id} href={item.url}>
                   {item.title}
                 </Nav.Link>
               ))}
-              <NavDropdown
+              {getToken &&
+                navItemAfterLogin.map((item) => (
+                  <Nav.Link key={item.id} href={item.url}>
+                    {item.title}
+                  </Nav.Link>
+                ))}
+              {getToken &&
+                navItemAfterLogin.map((item) => (
+                  <Nav.Link key={item.id} href={item.url}>
+                    {item.title}
+                  </Nav.Link>
+                ))}
+              {getToken &&
+                getRole === role.admin &&
+                navItemAdmin.map((item) => (
+                  <Nav.Link key={item.id} href={item.url}>
+                    {item.title}
+                  </Nav.Link>
+                ))}
+              {getToken && <Button onClick={logout}>Sign Out</Button>}
+              {/* <NavDropdown
                 title="Dropdown"
                 id={`offcanvasNavbarDropdown-expand-sm`}
               >
@@ -76,7 +121,7 @@ const Header = () => {
                 <NavDropdown.Item href="#action5">
                   Something else here
                 </NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown> */}
             </Nav>
             {/* <Form className="d-flex">
               <Form.Control

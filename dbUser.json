@@ -1,23 +1,23 @@
 {
   "users": [
     {
-      "email": "admin1@mail.com",
-      "password": "$2a$10$Cf55XayxqHB2Hir8H/E4XuP56/n2r2iirCIieVNDi4Gx996rogN9.",
-      "name": "Admin 1",
-      "address": "Address Admin 1",
+      "email": "admin@mail.com",
+      "password": "$2a$10$d6yLt0Xq0b6VzzoWbPePFelsOwwD3oz/v.cgZmj6jvhbTL2C0Yob6",
+      "name": "Admin",
+      "role": "admin",
       "gender": "male",
       "birthDate": "2000-12-30",
-      "role": "admin",
+      "address": "admin address",
       "id": 1
     },
     {
-      "email": "mail3@mail.com",
-      "password": "$2a$10$oHXACapQZCjGKGRSKEeiEenWXtpwtgOXm.Q9wCHzJqDVKjjNg3o/S",
-      "name": "asdasasda",
+      "email": "user1@mail.com",
+      "password": "$2a$10$FuSajDCUWz2IlYfW5bNoeuSq4qTbkWjtlPJ/vkYlb.Dz9740IFN0m",
+      "name": "User 1",
       "role": "user",
-      "gender": "female",
-      "birthDate": "2000-10-30",
-      "address": "adaxcaavd",
+      "gender": "male",
+      "birthDate": "2000-12-30",
+      "address": "user 1 address",
       "id": 2
     }
   ]

@@ -1,11 +1,5 @@
-import { initState } from './state'
-import {
-  LOGIN_FAILED,
-  LOGIN_SUCCESS,
-  LOGOUT,
-  REGISTER_FAILED,
-  REGISTER_SUCCESS
-} from './type'
+import { initState } from '../../login/_redux/state'
+import { LOGOUT, REGISTER_FAILED, REGISTER_SUCCESS } from './type'
 
 export const loginReducer = (state = initState, action) => {
   const { type, payload } = action
@@ -16,6 +10,8 @@ export const loginReducer = (state = initState, action) => {
         login: {
           email: payload.email,
           token: payload.accessToken,
+          role: payload.role,
+          id: payload.id,
           isLogin: false
         }
       }

@@ -14,7 +14,11 @@ export const loginRequest = (email, password) => async (dispatch) => {
     .then(({ data }) => {
       console.log({ data })
       localStorage.setItem('Token', data.accessToken)
+      localStorage.setItem('Role', data.user.role)
+      localStorage.setItem('UserID', data.user.id)
       dispatch({ type: LOGIN_SUCCESS, payload: data })
+      alert('Success Login')
+      window.location.assign('/')
     })
     .catch((err) => {
       dispatch({ type: LOGIN_FAILED, payload: err })
