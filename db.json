@@ -71,6 +71,13 @@
       "qty": 1,
       "price": 50,
       "id": 1
+    },
+    {
+      "idProduct": 2,
+      "idUser": "2",
+      "qty": 1,
+      "price": 50,
+      "id": 2
     }
   ]
 }
