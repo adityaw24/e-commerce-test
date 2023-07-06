@@ -23,7 +23,6 @@ export const registerUser =
     await httpLogin
       .post('/register', payload)
       .then(({ data }) => {
-        // console.log({ data })
         localStorage.setItem('Token', data.accessToken)
         localStorage.setItem('Role', data.user.role)
         localStorage.setItem('UserID', data.user.id)

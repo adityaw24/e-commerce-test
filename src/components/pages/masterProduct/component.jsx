@@ -9,7 +9,7 @@ import useRegularHooks from "../../../utils/hooks"
 export const ModalEditProduct = ({show, handleModal}) => {
     // const {id, code, productName, description, qty, price} = data
 
-    const {dispatch, reduxState} = useRegularHooks()
+    const {dispatch, reduxState, handleRefresh} = useRegularHooks()
 
     const getDataProduct = reduxState.product
     const {productDetail} = getDataProduct ?? {}
@@ -20,6 +20,7 @@ export const ModalEditProduct = ({show, handleModal}) => {
         description: '',
         qty: '',
         price: '',
+        img: '',
     }
 
     const {
@@ -39,10 +40,12 @@ export const ModalEditProduct = ({show, handleModal}) => {
           data.productName,
           data.description,
           data.qty,
-          data.price
+          data.price,
+          data.img
         )
       )
         handleModal()
+        handleRefresh()
     }
 
     useEffect(() => {
@@ -51,6 +54,7 @@ export const ModalEditProduct = ({show, handleModal}) => {
         setValue('price', productDetail?.price)
         setValue('productName', productDetail?.productName)
         setValue('qty', productDetail?.qty)
+        setValue('img', productDetail?.img)
     }, [productDetail])
     
     return (
@@ -121,6 +125,15 @@ export const ModalEditProduct = ({show, handleModal}) => {
                         required
                     />
                 </Form.Group>
+                <Form.Group as={Row} className="mb-3 m-0">
+                    <Form.Label className="text-start p-0">URL Image</Form.Label>
+                    <Form.Control
+                        {...register('img')}
+                        type="text"
+                        name="img"
+                        required
+                    />
+                </Form.Group>
             </Form>
           </Modal.Body>
           <Modal.Footer>
@@ -134,7 +147,7 @@ export const ModalEditProduct = ({show, handleModal}) => {
 export const ModalDeleteProduct = ({show, handleModal}) => {
     // const {id, code, productName, description, qty, price} = data
 
-    const {dispatch, reduxState} = useRegularHooks()
+    const {dispatch, reduxState, handleRefresh} = useRegularHooks()
 
     const getDataProduct = reduxState.product
     const {productDetail} = getDataProduct ?? {}
@@ -144,9 +157,10 @@ export const ModalDeleteProduct = ({show, handleModal}) => {
         deleteProduct(productDetail.id)
       )
         handleModal()
+        handleRefresh()
         alert(`Success Delete ${productDetail.productName}`)
     }
-    
+
     return (
         <Modal
             show={show}
@@ -174,10 +188,7 @@ export const ModalDeleteProduct = ({show, handleModal}) => {
 export const ModalAddProduct = ({show, handleModal}) => {
     // const {id, code, productName, description, qty, price} = data
 
-    const {dispatch, reduxState} = useRegularHooks()
-
-    // const getDataProduct = reduxState.product
-    // const {productDetail} = getDataProduct ?? {}
+    const {dispatch, handleRefresh} = useRegularHooks()
 
     const initForm = {
         productName: '',
@@ -185,6 +196,7 @@ export const ModalAddProduct = ({show, handleModal}) => {
         description: '',
         qty: '',
         price: '',
+        img: '',
     }
 
     const {
@@ -204,10 +216,12 @@ export const ModalAddProduct = ({show, handleModal}) => {
           data.productName,
           data.description,
           data.qty,
-          data.price
+          data.price,
+          data.img
         )
       )
         handleModal()
+        handleRefresh()
     }
 
     // useEffect(() => {
@@ -283,6 +297,15 @@ export const ModalAddProduct = ({show, handleModal}) => {
                         as="textarea"
                         rows={5}
                         name="description"
+                        required
+                    />
+                </Form.Group>
+                <Form.Group as={Row} className="mb-3 m-0">
+                    <Form.Label className="text-start p-0">URL Image</Form.Label>
+                    <Form.Control
+                        {...register('img')}
+                        type="text"
+                        name="img"
                         required
                     />
                 </Form.Group>

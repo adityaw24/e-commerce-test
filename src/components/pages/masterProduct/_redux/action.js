@@ -7,12 +7,10 @@ export const getProduct = () => async (dispatch) => {
   await httpProduct
     .get('/product')
     .then(({ data }) => {
-      console.log('get data :', data)
       dispatch({ type: PRODUCT_SUCCESS, payload: data })
     })
     .catch((err) => {
       dispatch({ type: PRODUCT_FAILED, payload: err })
-      console.log(err)
       alert(err)
     })
 }
@@ -23,17 +21,15 @@ export const getDetailProduct = (id) => async (dispatch) => {
   await httpProduct
     .get(`/product/${id}`)
     .then(({ data }) => {
-      console.log(data)
       dispatch({ type: PRODUCT_DETAIL_SUCCESS, payload: data })
     })
     .catch((err) => {
       dispatch({ type: PRODUCT_DETAIL_FAILED, payload: err })
-      console.log(err)
       alert(err)
     })
 }
 
-export const createProduct = (code, productName, description, qty, price) => async (dispatch) => {
+export const createProduct = (code, productName, description, qty, price, img) => async (dispatch) => {
   dispatch({ type: UPDATE_PRODUCT_REQUEST })
 
   const jsonData = {
@@ -42,22 +38,22 @@ export const createProduct = (code, productName, description, qty, price) => asy
     description,
     qty,
     price,
+    img,
   }
 
   await httpProduct
     .post(`/product/`, jsonData)
     .then(({ data }) => {
-      console.log('success create :', data)
       dispatch({ type: UPDATE_PRODUCT_SUCCESS, payload: data })
+      alert(`Success Create ${data.productName}`)
     })
     .catch((err) => {
       dispatch({ type: UPDATE_PRODUCT_FAILED, payload: err })
-      console.log(err)
       alert(err)
     })
 }
 
-export const updateProduct = (id, code, productName, description, qty, price) => async (dispatch) => {
+export const updateProduct = (id, code, productName, description, qty, price, img) => async (dispatch) => {
   dispatch({ type: UPDATE_PRODUCT_REQUEST })
 
   const jsonData = {
@@ -66,17 +62,17 @@ export const updateProduct = (id, code, productName, description, qty, price) =>
     description,
     qty,
     price,
+    img,
   }
 
   await httpProduct
     .put(`/product/${id}`, jsonData)
     .then(({ data }) => {
-      console.log('success update :', data)
       dispatch({ type: UPDATE_PRODUCT_SUCCESS, payload: data })
+      alert(`Success Update ${data.productName}`)
     })
     .catch((err) => {
       dispatch({ type: UPDATE_PRODUCT_FAILED, payload: err })
-      console.log(err)
       alert(err)
     })
 }
@@ -86,13 +82,11 @@ export const deleteProduct = (id) => async (dispatch) => {
 
   await httpProduct
     .delete(`/product/${id}`)
-    // .then(({ data }) => {
-    //   console.log('success update :', data)
-    //   dispatch({ type: UPDATE_PRODUCT_SUCCESS, payload: data })
+    // .then(() => {
+    //   alert(`Success Delete Product`)
     // })
     .catch((err) => {
       dispatch({ type: UPDATE_PRODUCT_FAILED, payload: err })
-      console.log(err)
       alert(err)
     })
 }

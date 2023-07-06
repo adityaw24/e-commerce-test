@@ -20,7 +20,6 @@ const MasterProduct = () => {
 
     const getDataProduct = reduxState.product
     const productList = getDataProduct.product ?? []
-    const productDetail = getDataProduct.productDetail ?? {}
 
     const handleModalEdit = () => showModalSet({...showModal, edit: !showModal.edit})
     const handleModalAdd = () => showModalSet({...showModal, add: !showModal.add})
@@ -31,10 +30,7 @@ const MasterProduct = () => {
             dispatch(getProduct())
         }
         fetchData()
-    }, [showModal])
-
-    console.log(productList)
-    console.log(refresh)
+    }, [showModal, refresh])
 
     return (
         <>
@@ -70,7 +66,6 @@ const MasterProduct = () => {
                                         role='button'
                                         onClick={() => {
                                             dispatch(getDetailProduct(p.id))
-                                            console.log(productDetail)
                                             handleModalEdit()
                                         }}
                                     >

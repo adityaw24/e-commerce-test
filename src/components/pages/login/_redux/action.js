@@ -12,7 +12,6 @@ export const loginRequest = (email, password) => async (dispatch) => {
   await httpLogin
     .post('/login', payload)
     .then(({ data }) => {
-      console.log({ data })
       localStorage.setItem('Token', data.accessToken)
       localStorage.setItem('Role', data.user.role)
       localStorage.setItem('UserID', data.user.id)
@@ -22,7 +21,6 @@ export const loginRequest = (email, password) => async (dispatch) => {
     })
     .catch((err) => {
       dispatch({ type: LOGIN_FAILED, payload: err })
-      console.log(err)
       alert(err)
     })
 }

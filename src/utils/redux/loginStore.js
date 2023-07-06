@@ -1,5 +1,5 @@
 import storage from 'redux-persist/lib/storage'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { combineReducers } from 'redux'
 import {
   FLUSH,
   PAUSE,
@@ -11,9 +11,6 @@ import {
   persistStore
 } from 'redux-persist'
 import { configureStore } from '@reduxjs/toolkit'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import * as loginAction from '../../components/pages/login/_redux/action'
-import thunk from 'redux-thunk'
 import { loginReducer } from '../../components/pages/login/_redux/reducer'
 
 const persistConfig = {
