@@ -13,6 +13,7 @@ import {
 } from 'react-router-dom'
 import {
   Login,
+  MasterProduct,
   NotFound,
   Register,
   SettingPage
@@ -25,11 +26,12 @@ const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     const fetchUserData = async () => {
-      await dispatch(getUserDataByID(getUserID))
+      getUserID && await dispatch(getUserDataByID(getUserID))
     }
 
     fetchUserData()
   })
+
   const routerAfterLogin = [
     {
       path: '/profile',
@@ -62,10 +64,10 @@ const App = () => {
 
   const routerAdmin = [
     {
-      path: '/admin',
+      path: '/master-data',
       element: (
         <Layout>
-          <SettingPage />
+          <MasterProduct />
         </Layout>
       )
     }

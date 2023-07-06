@@ -9,3 +9,11 @@ export const httpLogin = axios.create({
     Authorization: authToken
   }
 })
+
+export const httpProduct = axios.create({
+  baseURL: `${config.PRODUCT_URL}/`,
+  headers: {
+    'Content-Type': 'application/json;charset=UTF-8',
+    Authorization: authToken
+  }
+})

@@ -1,7 +1,7 @@
 import { initState } from '../../login/_redux/state'
 import { LOGOUT, REGISTER_FAILED, REGISTER_SUCCESS } from './type'
 
-export const loginReducer = (state = initState, action) => {
+export const registerReducer = (state = initState, action) => {
   const { type, payload } = action
   switch (type) {
     case REGISTER_SUCCESS:

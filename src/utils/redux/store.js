@@ -11,21 +11,18 @@ import {
   persistStore
 } from 'redux-persist'
 import { configureStore } from '@reduxjs/toolkit'
-import { loginReducer } from '../../components/pages/register/_redux/reducer'
+import { loginReducer } from '../../components/pages/login/_redux/reducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import * as loginAction from '../../components/pages/register/_redux/action'
+import * as loginAction from '../../components/pages/login/_redux/action'
 import thunk from 'redux-thunk'
+import rootReducer from './reducer'
 
 const persistConfig = {
   key: 'root',
   storage
 }
 
-const reducers = combineReducers({
-  login: loginReducer
-})
-
-const persistedReducer = persistReducer(persistConfig, reducers)
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 // const composeEnhancers = composeWithDevTools({
 //   loginAction,

@@ -1,3 +1,4 @@
 {
-    "LOGIN_URL": "http://localhost:8001"
+    "LOGIN_URL": "http://localhost:8001",
+    "PRODUCT_URL": "http://localhost:8000"
 }

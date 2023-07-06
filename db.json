@@ -1,106 +1,52 @@
 {
   "product": [
     {
-      "intProductID": 1,
-      "txtProductCode": "PRD-1",
-      "txtProductName": "product 1",
+      "code": "PRD-1",
+      "productName": "product 11",
       "description": "description product 1",
-      "intQty": 2,
-      "decPrice": 50
+      "qty": 5,
+      "price": 50,
+      "id": 1
     },
     {
-      "intProductID": 2,
-      "txtProductCode": "PRD-2",
-      "txtProductName": "product 2",
+      "id": 2,
+      "code": "PRD-2",
+      "productName": "product 2",
       "description": "description product 2",
-      "intQty": 2,
-      "decPrice": 50
+      "qty": 2,
+      "price": 50
     },
     {
-      "intProductID": 3,
-      "txtProductCode": "PRD-3",
-      "txtProductName": "product 3",
+      "id": 3,
+      "code": "PRD-3",
+      "productName": "product 3",
       "description": "description product 3",
-      "intQty": 2,
-      "decPrice": 50
+      "qty": 2,
+      "price": 50
     },
     {
-      "intProductID": 4,
-      "txtProductCode": "PRD-4",
-      "txtProductName": "product 4",
+      "code": "PRD-4",
+      "productName": "product 4",
       "description": "description product 4",
-      "intQty": 2,
-      "decPrice": 50
+      "qty": "20",
+      "price": 50,
+      "id": 4
     },
     {
-      "intProductID": 5,
-      "txtProductCode": "PRD-5",
-      "txtProductName": "product 5",
+      "id": 5,
+      "code": "PRD-5",
+      "productName": "product 5",
       "description": "description product 5",
-      "intQty": 2,
-      "decPrice": 50
+      "qty": 2,
+      "price": 50
     },
     {
-      "intProductID": 6,
-      "txtProductCode": "PRD-6",
-      "txtProductName": "product 6",
+      "code": "PRD-6",
+      "productName": "product 6",
       "description": "description product 6",
-      "intQty": 2,
-      "decPrice": 50
-    }
-  ],
-  "customer": [
-    {
-      "intCustomerID": 1,
-      "txtCustomerName": "Bot 1",
-      "txtCustomerUserName": "Bot1",
-      "txtCustomerPassword": "password1",
-      "txtCustomerAddress": "Address Bot 1",
-      "bitGender": 0,
-      "dtmBirthDate": "2019-07-06",
-      "inserted": "2023-07-06T18:04:36+07:00"
-    },
-    {
-      "intCustomerID": 2,
-      "txtCustomerName": "Bot 2",
-      "txtCustomerUserName": "Bot2",
-      "txtCustomerPassword": "password2",
-      "txtCustomerAddress": "Address Bot 2",
-      "bitGender": 0,
-      "dtmBirthDate": "2019-07-06",
-      "inserted": "2023-07-06T18:04:36+07:00"
-    },
-    {
-      "intCustomerID": 3,
-      "txtCustomerName": "Bot 3",
-      "txtCustomerUserName": "Bot3",
-      "txtCustomerPassword": "password3",
-      "txtCustomerAddress": "Address Bot 3",
-      "bitGender": 0,
-      "dtmBirthDate": "2019-07-06",
-      "inserted": "2023-07-06T18:04:36+07:00"
-    }
-  ],
-  "admin": [
-    {
-      "intAdminID": 1,
-      "txtAdminName": "Admin 1",
-      "txtAdminUserName": "Admin1",
-      "txtAdminPassword": "password1",
-      "txtAdminAddress": "Address Admin 1",
-      "bitGender": 0,
-      "dtmBirthDate": "2019-07-06",
-      "inserted": "2023-07-06T18:04:36+07:00"
-    },
-    {
-      "intAdminID": 2,
-      "txtAdminName": "Admin 2",
-      "txtAdminUserName": "Admin2",
-      "txtAdminPassword": "password2",
-      "txtAdminAddress": "Address Admin 2",
-      "bitGender": 0,
-      "dtmBirthDate": "2019-07-06",
-      "inserted": "2023-07-06T18:04:36+07:00"
+      "qty": "10",
+      "price": 50,
+      "id": 6
     }
   ]
 }

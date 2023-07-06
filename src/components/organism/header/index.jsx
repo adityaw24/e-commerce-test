@@ -37,10 +37,23 @@ const Header = () => {
 
   const dispatch = useDispatch()
 
+  const navItemLogin = [
+    {
+      id: 1,
+      title: 'Login',
+      url: '/login'
+    },
+    {
+      id: 2,
+      title: 'Register',
+      url: '/register'
+    }
+  ]
+
   const navItemBeforeLogin = [
     {
       id: 1,
-      title: 'Product',
+      title: 'Home',
       url: '/'
     }
   ]
@@ -56,8 +69,8 @@ const Header = () => {
   const navItemAdmin = [
     {
       id: 1,
-      title: 'Page Admin',
-      url: '/admin'
+      title: 'Master Data',
+      url: '/master-data'
     }
   ]
 
@@ -87,8 +100,8 @@ const Header = () => {
                   {item.title}
                 </Nav.Link>
               ))}
-              {getToken &&
-                navItemAfterLogin.map((item) => (
+              {!getToken &&
+                navItemLogin.map((item) => (
                   <Nav.Link key={item.id} href={item.url}>
                     {item.title}
                   </Nav.Link>
@@ -106,7 +119,7 @@ const Header = () => {
                     {item.title}
                   </Nav.Link>
                 ))}
-              {getToken && <Button onClick={logout}>Sign Out</Button>}
+              {getToken && <Button size='sm' onClick={logout}>Sign Out</Button>}
               {/* <NavDropdown
                 title="Dropdown"
                 id={`offcanvasNavbarDropdown-expand-sm`}
