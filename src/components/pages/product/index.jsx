@@ -12,8 +12,6 @@ const ProductPage = () => {
     detail: false,
   });
 
-  console.log(reduxState);
-
   const getDataProduct = reduxState.product;
   const productList = getDataProduct.product ?? [];
 

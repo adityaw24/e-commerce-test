@@ -61,8 +61,6 @@ const ProfilePage = () => {
 
   const handleEdit = () => isEnableSet({ ...isEnable, edit: !isEnable.edit });
 
-  console.log(userData);
-
   useEffect(() => {
     setValue("address", userData.address);
     setValue("email", userData.email);
