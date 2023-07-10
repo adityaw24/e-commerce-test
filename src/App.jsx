@@ -11,6 +11,7 @@ import {
   MasterProduct,
   NotFound,
   ProductPage,
+  ProfilePage,
   Register,
 } from "./components/pages";
 import { Layout } from "./components/organism";
@@ -29,8 +30,12 @@ const App = () => {
 
   const routerAfterLogin = [
     {
-      path: "/profile",
-      element: <Layout>{/* <SettingPage /> */}</Layout>,
+      path: url.profile.path,
+      element: (
+        <Layout>
+          <ProfilePage />
+        </Layout>
+      ),
     },
     {
       path: url.checkout.path,

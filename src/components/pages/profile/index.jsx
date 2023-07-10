@@ -1,24 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Button, Form, InputGroup, Row } from "react-bootstrap";
-import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { registerUser } from "./_redux/action";
+import { useEffect, useState } from "react";
+import { editProfile } from "./_redux/action";
+import useRegularHooks from "../../../utils/hooks";
 
-const Register = () => {
-  const dispatch = useDispatch();
+const ProfilePage = () => {
+  const { dispatch, reduxState } = useRegularHooks();
 
-  const validation = yup
-    .object({
-      name: yup.string().required("Please enter a valid name"),
-      address: yup.string().required("Please enter a valid address"),
-      email: yup.string().required("Please enter a valid email"),
-      password: yup.string().required("Please enter a valid password"),
-      birthDate: yup.string().required("Please enter a valid date"),
-    })
-    .required();
+  const getDataUser = reduxState.user;
+  const userData = getDataUser.userData ?? {};
+
+  const [isEnable, isEnableSet] = useState({
+    edit: false,
+  });
 
   const initForm = {
     name: "",
@@ -26,15 +22,15 @@ const Register = () => {
     email: "",
     password: "",
     birthDate: "",
+    gender: "",
   };
 
   const {
     register,
     handleSubmit,
     setValue,
-    formState: { errors },
+    // formState: { errors },
   } = useForm({
-    resolver: yupResolver(validation),
     defaultValues: initForm,
   });
 
@@ -50,16 +46,31 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     await dispatch(
-      registerUser(
+      editProfile(
         data.email,
         data.password,
+        userData.role,
         data.name,
         data.gender,
         data.birthDate,
-        data.address
+        data.address,
+        userData.id
       )
     );
   };
+
+  const handleEdit = () => isEnableSet({ ...isEnable, edit: !isEnable.edit });
+
+  console.log(userData);
+
+  useEffect(() => {
+    setValue("address", userData.address);
+    setValue("email", userData.email);
+    setValue("name", userData.name);
+    // setValue("password", initForm.password);
+    setValue("birthDate", userData.birthDate);
+    setValue("gender", userData.gender);
+  }, [userData]);
 
   return (
     <div
@@ -77,15 +88,8 @@ const Register = () => {
             type="text"
             name="name"
             required
-            //   value={values.firstName}
-            //   onChange={handleChange}
-            //   isValid={touched.firstName && !errors.firstName}
+            disabled={!isEnable.edit}
           />
-          {errors.name && (
-            <Form.Control.Feedback type="invalid">
-              {errors.name?.message}
-            </Form.Control.Feedback>
-          )}
         </Form.Group>
         <Form.Group as={Row} className="mb-3">
           <Form.Label className="text-start p-0">Email</Form.Label>
@@ -94,15 +98,8 @@ const Register = () => {
             type="email"
             name="email"
             required
-            //   value={values.firstName}
-            //   onChange={handleChange}
-            //   isValid={touched.firstName && !errors.firstName}
+            disabled={!isEnable.edit}
           />
-          {errors.email && (
-            <Form.Control.Feedback type="invalid">
-              {errors.email?.message}
-            </Form.Control.Feedback>
-          )}
         </Form.Group>
         <Form.Group as={Row} className="mb-3">
           <Form.Label className="text-start p-0">Password</Form.Label>
@@ -112,23 +109,15 @@ const Register = () => {
               type={showPassword ? "text" : "password"}
               name="password"
               required
-              //   value={values.firstName}
-              //   onChange={handleChange}
-              //   isValid={touched.firstName && !errors.firstName}
+              disabled={!isEnable.edit}
             />
             <InputGroup.Text id="basic-addon2" className="pe-auto">
               <span role="button" onClick={toggleShowPassword}>
-                {/* <FaEyeSlash/> */}
                 {!showPassword && <FaEye />}
                 {showPassword && <FaEyeSlash />}
               </span>
             </InputGroup.Text>
           </InputGroup>
-          {errors.password && (
-            <Form.Control.Feedback type="invalid">
-              {errors.password?.message}
-            </Form.Control.Feedback>
-          )}
         </Form.Group>
         <Form.Group as={Row} className="mb-3">
           <Form.Label className="text-start p-0">Gender</Form.Label>
@@ -140,6 +129,7 @@ const Register = () => {
               id="gender-male"
               value="male"
               required
+              disabled={!isEnable.edit}
             />
             <Form.Check.Label className="text-start">Male</Form.Check.Label>
           </Form.Check>
@@ -151,6 +141,7 @@ const Register = () => {
               id="gender-female"
               value="female"
               required
+              disabled={!isEnable.edit}
             />
             <Form.Check.Label className="text-start">Female</Form.Check.Label>
           </Form.Check>
@@ -163,15 +154,8 @@ const Register = () => {
             name="birtDate"
             onChange={(e) => handleBirthDate(e)}
             required
-            //   value={values.firstName}
-            //   onChange={handleChange}
-            //   isValid={touched.firstName && !errors.firstName}
+            disabled={!isEnable.edit}
           />
-          {/* <DatePicker
-        // showIcon
-        // selected={startDate}
-        // onChange={(date) => setStartDate(date)}
-        /> */}
         </Form.Group>
         <Form.Group as={Row} className="mb-3">
           <Form.Label className="text-start p-0">Address</Form.Label>
@@ -181,19 +165,29 @@ const Register = () => {
             rows={5}
             name="address"
             required
+            disabled={!isEnable.edit}
           />
-          {errors.address && (
-            <Form.Control.Feedback type="invalid">
-              {errors.address?.message}
-            </Form.Control.Feedback>
-          )}
         </Form.Group>
-        <Button type="submit" variant="primary">
-          Sign Up
-        </Button>
+        <div className="d-flex flex-wrap justify-content-end gap-3">
+          {!isEnable.edit && (
+            <Button type="button" variant="primary" onClick={handleEdit}>
+              Edit
+            </Button>
+          )}
+          {isEnable.edit && (
+            <Button type="submit" variant="primary">
+              Submit
+            </Button>
+          )}
+          {isEnable.edit && (
+            <Button type="button" variant="secondary" onClick={handleEdit}>
+              Cancel
+            </Button>
+          )}
+        </div>
       </Form>
     </div>
   );
 };
 
-export default Register;
+export default ProfilePage;

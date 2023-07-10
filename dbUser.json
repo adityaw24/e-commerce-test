@@ -19,6 +19,26 @@
       "birthDate": "2000-12-30",
       "address": "user 1 address",
       "id": 2
+    },
+    {
+      "email": "admin2@mail.com",
+      "password": "$2a$10$oiZXsbc6rIr89kfh2PwRo.1ukdE/fsd4pWzoQTH1ChbFsOd04SMVq",
+      "name": "admin 2",
+      "role": "admin",
+      "gender": "female",
+      "birthDate": "1997-01-30",
+      "address": "admin 2 address",
+      "id": 3
+    },
+    {
+      "name": "admin 4",
+      "password": "$2a$10$eoMWgEBa6WUeQy88Ljhxu.Ka.DAaBgL8OLKPavWZ3.qSaLSicT2my",
+      "email": "admin4@mail.com",
+      "gender": "male",
+      "role": "admin",
+      "birthDate": "1997-12-01",
+      "address": "address admin 4",
+      "id": 4
     }
   ]
 }

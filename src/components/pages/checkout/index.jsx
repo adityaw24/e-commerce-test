@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import useRegularHooks from "../../../utils/hooks";
 import { getDetailProduct } from "../masterProduct/_redux/action";
-import { getUserDataByID } from "../../../utils/redux/action/userAction";
 import { submitOrderProduct } from "./_redux/action";
 
 const CheckoutPage = () => {
@@ -16,10 +15,6 @@ const CheckoutPage = () => {
   const getDataProduct = reduxState.product;
   const checkoutProduct = getDataProduct.checkoutProduct ?? {};
   const productDetail = getDataProduct.productDetail ?? {};
-
-  console.log(checkoutProduct);
-  console.log(productDetail);
-  console.log(userData);
 
   const initForm = {
     address: "",

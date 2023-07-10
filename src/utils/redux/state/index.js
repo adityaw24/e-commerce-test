@@ -4,3 +4,14 @@ export const productState = {
   checkoutProduct: {},
   submitOrder: {},
 };
+
+export const userState = {
+  login: {
+    email: "",
+    token: "",
+    role: "",
+    id: "",
+    isLogin: false,
+  },
+  error: "",
+};

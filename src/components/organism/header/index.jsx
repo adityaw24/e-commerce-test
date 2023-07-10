@@ -30,11 +30,11 @@ const Header = () => {
   ];
 
   const navItemAfterLogin = [
-    // {
-    //   id: 1,
-    //   title: 'Profile',
-    //   url: '/profile'
-    // }
+    {
+      id: 1,
+      title: url.profile.name,
+      url: url.profile.path,
+    },
   ];
 
   const navItemAdmin = [
@@ -50,7 +50,7 @@ const Header = () => {
   };
 
   return (
-    <Navbar expand="sm" className="bg-body-tertiary mb-3">
+    <Navbar expand="sm" className="bg-body-tertiary mb-3 sticky-top">
       <Container fluid>
         <Navbar.Brand href="/">E-Commerce</Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} />

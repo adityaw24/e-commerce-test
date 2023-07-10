@@ -24,4 +24,8 @@ export const url = {
     name: "Maaster Product",
     path: "/master-product",
   },
+  profile: {
+    name: "Profile",
+    path: "/profile",
+  },
 };
