@@ -78,6 +78,71 @@
       "qty": 1,
       "price": 50,
       "id": 2
+    },
+    {
+      "idProduct": 1,
+      "idUser": "2",
+      "qty": 1,
+      "price": 50,
+      "id": 3
+    },
+    {
+      "idProduct": 4,
+      "idUser": "2",
+      "qty": 3,
+      "price": 150,
+      "id": 4
+    },
+    {
+      "idProduct": 6,
+      "idUser": 2,
+      "qty": 4,
+      "price": 200,
+      "id": 5
+    },
+    {
+      "idProduct": 3,
+      "idUser": 2,
+      "qty": 4,
+      "price": 200,
+      "id": 6
+    },
+    {
+      "idProduct": 5,
+      "idUser": 2,
+      "qty": 1,
+      "price": 50,
+      "id": 7
+    },
+    {
+      "idProduct": 3,
+      "idUser": 1,
+      "qty": 3,
+      "price": 150,
+      "id": 8
+    },
+    {
+      "idProduct": 4,
+      "idUser": 1,
+      "qty": 3,
+      "price": 150,
+      "id": 9
+    },
+    {
+      "idProduct": 4,
+      "idUser": 1,
+      "qty": 5,
+      "price": 250,
+      "id": 10
+    }
+  ],
+  "orders": [
+    {
+      "idCheckout": 10,
+      "idProduct": 4,
+      "idUser": 1,
+      "shippingAddress": "admin address",
+      "id": 1
     }
   ]
 }

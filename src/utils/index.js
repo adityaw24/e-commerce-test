@@ -1,9 +1,4 @@
-import {
-  authToken,
-  getToken,
-  getRole,
-  getUserID
-} from './config/authConfig'
-import { role } from './const'
+import { authToken, getToken, getRole, getUserID } from "./config/authConfig";
+import { role, url } from "./const";
 
-export { authToken, getToken, getRole, role, getUserID }
+export { authToken, getToken, getRole, role, getUserID, url };

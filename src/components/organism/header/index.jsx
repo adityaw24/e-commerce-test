@@ -1,38 +1,33 @@
-import {
-  Button,
-  Container,
-  Nav,
-  Navbar,
-  Offcanvas} from 'react-bootstrap'
-import { getRole, getToken, role } from '../../../utils'
-import { useDispatch } from 'react-redux'
-import { logoutRequest } from './_redux/action'
+import { Button, Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { getRole, getToken, role, url } from "../../../utils";
+import { useDispatch } from "react-redux";
+import { logoutRequest } from "./_redux/action";
 
 const Header = () => {
   // const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const navItemLogin = [
     {
       id: 1,
-      title: 'Login',
-      url: '/login'
+      title: url.login.name,
+      url: url.login.path,
     },
     {
       id: 2,
-      title: 'Register',
-      url: '/register'
-    }
-  ]
+      title: url.register.name,
+      url: url.register.path,
+    },
+  ];
 
   const navItemBeforeLogin = [
     {
       id: 1,
-      title: 'Home',
-      url: '/'
-    }
-  ]
+      title: url.home.name,
+      url: url.home.path,
+    },
+  ];
 
   const navItemAfterLogin = [
     // {
@@ -40,19 +35,19 @@ const Header = () => {
     //   title: 'Profile',
     //   url: '/profile'
     // }
-  ]
+  ];
 
   const navItemAdmin = [
     {
       id: 1,
-      title: 'Master Data',
-      url: '/master-data'
-    }
-  ]
+      title: url.masterDataProduct.name,
+      url: url.masterDataProduct.path,
+    },
+  ];
 
   const logout = async () => {
-    await dispatch(logoutRequest())
-  }
+    await dispatch(logoutRequest());
+  };
 
   return (
     <Navbar expand="sm" className="bg-body-tertiary mb-3">
@@ -95,13 +90,17 @@ const Header = () => {
                     {item.title}
                   </Nav.Link>
                 ))}
-              {getToken && <Button size='sm' onClick={logout}>Sign Out</Button>}
+              {getToken && (
+                <Button size="sm" onClick={logout}>
+                  Sign Out
+                </Button>
+              )}
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>
     </Navbar>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

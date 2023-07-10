@@ -1,105 +1,102 @@
-import { useEffect } from 'react'
-import './App.css'
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from "react";
+import "./App.css";
 // import { Register } from './components/pages/register'
-import 'react-datepicker/dist/react-datepicker.css'
-import { getRole, getToken, getUserID, role } from './utils'
+import "react-datepicker/dist/react-datepicker.css";
+import { getRole, getToken, getUserID, role, url } from "./utils";
+import { Route, Routes } from "react-router-dom";
 import {
-  Route,
-  Routes} from 'react-router-dom'
-import {
+  CheckoutPage,
   Login,
   MasterProduct,
   NotFound,
   ProductPage,
-  Register} from './components/pages'
-import { Layout } from './components/organism'
-import { useDispatch } from 'react-redux'
-import { getUserDataByID } from './utils/redux/action/userAction'
+  Register,
+} from "./components/pages";
+import { Layout } from "./components/organism";
+import { useDispatch } from "react-redux";
+import { getUserDataByID } from "./utils/redux/action/userAction";
 
 const App = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
     const fetchUserData = async () => {
-      getUserID && await dispatch(getUserDataByID(getUserID))
-    }
+      getUserID && (await dispatch(getUserDataByID(Number(getUserID))));
+    };
 
-    fetchUserData()
-  })
+    fetchUserData();
+  }, [getUserID]);
 
   const routerAfterLogin = [
     {
-      path: '/profile',
-      element: <Layout>{/* <SettingPage /> */}</Layout>
-    }
-  ]
+      path: "/profile",
+      element: <Layout>{/* <SettingPage /> */}</Layout>,
+    },
+    {
+      path: url.checkout.path,
+      element: (
+        <Layout>
+          <CheckoutPage />
+        </Layout>
+      ),
+    },
+  ];
 
   const routerBeforeLogin = [
     {
-      path: '/',
+      path: url.home.path,
       element: (
         <Layout>
-          <ProductPage/>
+          <ProductPage />
         </Layout>
-      )
+      ),
     },
     {
-      path: '/register',
+      path: url.register.path,
       element: (
         <Layout>
           <Register />
         </Layout>
-      )
+      ),
     },
     {
-      path: '/login',
+      path: url.login.path,
       element: (
         <Layout>
           <Login />
         </Layout>
-      )
-    }
-  ]
+      ),
+    },
+  ];
 
   const routerAdmin = [
     {
-      path: '/master-data',
+      path: url.masterDataProduct.path,
       element: (
         <Layout>
           <MasterProduct />
         </Layout>
-      )
-    }
-  ]
+      ),
+    },
+  ];
 
   return (
     <Routes>
       {/* <Layout> */}
       {routerBeforeLogin.map((route) => (
-        <Route
-          key={route.path}
-          path={route.path}
-          element={route.element}
-        />
+        <Route key={route.path} path={route.path} element={route.element} />
       ))}
       {getToken &&
         routerAfterLogin.map((route) => (
-          <Route
-            key={route.path}
-            path={route.path}
-            element={route.element}
-          />
+          <Route key={route.path} path={route.path} element={route.element} />
         ))}
       {getToken &&
         getRole === role.admin &&
         routerAdmin.map((route) => (
-          <Route
-            key={route.path}
-            path={route.path}
-            element={route.element}
-          />
+          <Route key={route.path} path={route.path} element={route.element} />
         ))}
       <Route
-        path={'*'}
+        path={"*"}
         element={
           <Layout>
             <NotFound />
@@ -109,7 +106,7 @@ const App = () => {
       />
       {/* </Layout> */}
     </Routes>
-  )
-}
+  );
+};
 
-export default App
+export default App;
