@@ -134,6 +134,13 @@
       "qty": 5,
       "price": 250,
       "id": 10
+    },
+    {
+      "idProduct": 1,
+      "idUser": 1,
+      "qty": 5,
+      "price": 250,
+      "id": 11
     }
   ],
   "orders": [
@@ -143,6 +150,13 @@
       "idUser": 1,
       "shippingAddress": "admin address",
       "id": 1
+    },
+    {
+      "idCheckout": 11,
+      "idProduct": 1,
+      "idUser": 1,
+      "shippingAddress": "admin address",
+      "id": 2
     }
   ]
 }
