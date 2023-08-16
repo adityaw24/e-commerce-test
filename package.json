@@ -8,8 +8,7 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "json-server": "npx json-server --watch db.json --port 8000",
-    "json-auth": "npx json-server --watch dbUser.json --port 8001 -m ./node_modules/json-server-auth"
+    "json-server": "npx json-server --watch db.json --port 8000 -m ./node_modules/json-server-auth"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",

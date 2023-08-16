@@ -1,4 +1,4 @@
 {
-    "LOGIN_URL": "http://localhost:8001",
-    "PRODUCT_URL": "http://localhost:8000"
+    "LOGIN_URL": "https://json-server-ecommerce.vercel.app/api",
+    "PRODUCT_URL": "https://json-server-ecommerce.vercel.app/api"
 }

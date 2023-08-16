@@ -4,11 +4,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { registerUser } from "./_redux/action";
+import useRegularHooks from "../../../utils/hooks";
+import { url } from "../../../utils/const";
 
 const Register = () => {
-  const dispatch = useDispatch();
+  const { dispatch, navigate } = useRegularHooks();
 
   const validation = yup
     .object({
@@ -59,6 +60,7 @@ const Register = () => {
         data.address
       )
     );
+    await navigate(url.login.path);
   };
 
   return (

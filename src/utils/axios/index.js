@@ -1,19 +1,19 @@
-import axios from 'axios'
-import config from '../../../config.json'
-import { authToken } from '../config/authConfig'
+import axios from "axios";
+import config from "../../../config.json";
+import { authToken } from "../config/authConfig";
 
 export const httpLogin = axios.create({
-  baseURL: `${config.LOGIN_URL}/`,
+  baseURL: `${config.LOGIN_URL}`,
   headers: {
-    'Content-Type': 'application/json;charset=UTF-8',
-    Authorization: authToken
-  }
-})
+    "Content-Type": "application/json;charset=UTF-8",
+    Authorization: authToken,
+  },
+});
 
 export const httpProduct = axios.create({
-  baseURL: `${config.PRODUCT_URL}/`,
+  baseURL: `${config.PRODUCT_URL}`,
   headers: {
-    'Content-Type': 'application/json;charset=UTF-8',
-    Authorization: authToken
-  }
-})
+    "Content-Type": "application/json;charset=UTF-8",
+    Authorization: authToken,
+  },
+});

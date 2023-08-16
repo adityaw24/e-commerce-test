@@ -56,7 +56,7 @@
     },
     {
       "code": "tes",
-      "productName": "tes",
+      "productName": "tes prod",
       "description": "tes",
       "qty": "5",
       "price": "10",
@@ -157,6 +157,68 @@
       "idUser": 1,
       "shippingAddress": "admin address",
       "id": 2
+    }
+  ],
+  "users": [
+    {
+      "name": "Admin",
+      "password": "$2a$10$XRwhdBavTOZemT7XRC8taOyylWOyGcwwknjgkx4ePeDafkdUFTuC.",
+      "role": "admin",
+      "email": "admin@mail.com",
+      "gender": "male",
+      "birthDate": "2000-12-30",
+      "address": "admin address baru",
+      "id": 1
+    },
+    {
+      "email": "user1@mail.com",
+      "password": "$2a$10$FuSajDCUWz2IlYfW5bNoeuSq4qTbkWjtlPJ/vkYlb.Dz9740IFN0m",
+      "name": "User 1",
+      "role": "user",
+      "gender": "male",
+      "birthDate": "2000-12-30",
+      "address": "user 1 address",
+      "id": 2
+    },
+    {
+      "email": "admin2@mail.com",
+      "password": "$2a$10$oiZXsbc6rIr89kfh2PwRo.1ukdE/fsd4pWzoQTH1ChbFsOd04SMVq",
+      "name": "admin 2",
+      "role": "admin",
+      "gender": "female",
+      "birthDate": "1997-01-30",
+      "address": "admin 2 address",
+      "id": 3
+    },
+    {
+      "name": "admin 4",
+      "password": "$2a$10$eoMWgEBa6WUeQy88Ljhxu.Ka.DAaBgL8OLKPavWZ3.qSaLSicT2my",
+      "email": "admin4@mail.com",
+      "gender": "male",
+      "role": "admin",
+      "birthDate": "1997-12-01",
+      "address": "address admin 4",
+      "id": 4
+    },
+    {
+      "email": "tes.user@mail.com",
+      "password": "$2a$10$NAknQcVRBGXnb7OIlbrozeZPlifyMzw5DiSjQiNBDX81oKFJ10NQa",
+      "name": "tes user",
+      "role": "user",
+      "gender": "male",
+      "birthDate": "2020-01-31",
+      "address": "address tes user",
+      "id": 5
+    },
+    {
+      "email": "tes.user2@mail.com",
+      "password": "$2a$10$Nl0rUsL778uqg6ZnS0t.3OiFJCyGWktGLGCKpbErdv2tSVMu39LoW",
+      "name": "tes user 2",
+      "role": "user",
+      "gender": "male",
+      "birthDate": "2020-01-31",
+      "address": "tes address user 2",
+      "id": 6
     }
   ]
 }
